@@ -29,8 +29,15 @@ function showTextInput() {
 
 async function reloadImage() {
     let image = await ApiClient.getRandomImage();
-    // TODO: Set image in canvas
-    // canvas.setImage(image);
+    canvas.setImage(image);
+}
+
+function downloadImage() {
+    console.log("in: downloadImage");
+    var link = document.createElement("a");
+    link.download = "meme.png";
+    link.href = canvas.getImageUrl();
+    link.click();
 }
 
 function onTextChanged() {
@@ -55,6 +62,8 @@ function onButtonClicked(action) {
         case "fontSize":
             canvas.changeFontSize();
             break;
+        case "download":
+            downloadImage();
         default:
             break;
 

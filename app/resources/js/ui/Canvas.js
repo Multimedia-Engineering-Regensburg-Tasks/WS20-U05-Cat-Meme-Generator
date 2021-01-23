@@ -74,6 +74,10 @@ class Canvas {
         this.render();
     }
 
+    getImageUrl() {
+        return this.canvas.toDataURL("image/png");
+    }
+
     render() {
         renderCanvas(this.canvas, this.model);
     }
